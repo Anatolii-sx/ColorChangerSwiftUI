@@ -25,30 +25,6 @@ struct ContentView: View {
     
     @State private var alertPresented = false
     
-    private func validateTextFields() {
-        guard let redTextFieldValue = Int(redTextFieldValue),
-              let greenTextFieldValue = Int(greenTextFieldValue),
-              let blueTextFieldValue = Int(blueTextFieldValue)
-        else {
-            setValuesForTextFieldsFromSliders()
-            return
-        }
-            
-        if self.redTextFieldValue.isEmpty || redTextFieldValue > 255 ||
-           self.greenTextFieldValue.isEmpty || greenTextFieldValue > 255 ||
-           self.blueTextFieldValue.isEmpty || blueTextFieldValue > 255 {
-            
-            setValuesForTextFieldsFromSliders()
-            alertPresented.toggle()
-        }
-    }
-    
-    private func setValuesForTextFieldsFromSliders() {
-        self.redTextFieldValue = "\(lround(redSliderValue))"
-        self.greenTextFieldValue = "\(lround(greenSliderValue))"
-        self.blueTextFieldValue = "\(lround(blueSliderValue))"
-    }
-    
     var body: some View {
         
         ZStack {
@@ -101,6 +77,45 @@ struct ContentView: View {
         .alert("Wrong value", isPresented: $alertPresented, actions: {}) {
             Text("Enter value from 0 to 255")
         }
+    }
+    
+    private func validateTextFields() {
+        guard let redTextFieldValue = Int(redTextFieldValue),
+              let greenTextFieldValue = Int(greenTextFieldValue),
+              let blueTextFieldValue = Int(blueTextFieldValue)
+        else {
+            setValuesForTextFields()
+            return
+        }
+            
+        if self.redTextFieldValue.isEmpty || redTextFieldValue > 255 ||
+           self.greenTextFieldValue.isEmpty || greenTextFieldValue > 255 ||
+           self.blueTextFieldValue.isEmpty || blueTextFieldValue > 255 {
+            
+            clearTextFields()
+            alertPresented.toggle()
+        } else {
+            setValuesForSliders()
+            clearTextFields()
+        }
+    }
+    
+    private func setValuesForTextFields() {
+        redTextFieldValue = "\(lround(redSliderValue))"
+        greenTextFieldValue = "\(lround(greenSliderValue))"
+        blueTextFieldValue = "\(lround(blueSliderValue))"
+    }
+    
+    private func setValuesForSliders() {
+        redSliderValue = Double(redTextFieldValue) ?? 0
+        greenSliderValue = Double(greenTextFieldValue) ?? 0
+        blueSliderValue = Double(blueTextFieldValue) ?? 0
+    }
+    
+    private func clearTextFields() {
+        redTextFieldValue = ""
+        greenTextFieldValue = ""
+        blueTextFieldValue = ""
     }
 }
 
