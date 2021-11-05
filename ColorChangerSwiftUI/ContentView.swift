@@ -46,6 +46,9 @@ struct ContentView: View {
                 Spacer()
             }
         }
+        .onTapGesture {
+            isInputActive = false
+        }
     }
 }
 
