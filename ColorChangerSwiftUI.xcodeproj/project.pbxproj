@@ -13,6 +13,8 @@
 		9C5D5621272C65AD0045CB8B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C5D5620272C65AD0045CB8B /* Preview Assets.xcassets */; };
 		9C5D5628272C660D0045CB8B /* ColorSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5D5627272C660D0045CB8B /* ColorSliderView.swift */; };
 		9C5D562A272C83CC0045CB8B /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5D5629272C83CC0045CB8B /* ColorView.swift */; };
+		9C639EE72735A2A600E94B65 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C639EE62735A2A600E94B65 /* TextView.swift */; };
+		9C639EE92735A41400E94B65 /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C639EE82735A41400E94B65 /* TextFieldView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +25,8 @@
 		9C5D5620272C65AD0045CB8B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9C5D5627272C660D0045CB8B /* ColorSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSliderView.swift; sourceTree = "<group>"; };
 		9C5D5629272C83CC0045CB8B /* ColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
+		9C639EE62735A2A600E94B65 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
+		9C639EE82735A41400E94B65 /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,8 @@
 				9C5D5619272C65AB0045CB8B /* ColorChangerSwiftUIApp.swift */,
 				9C5D561B272C65AB0045CB8B /* ContentView.swift */,
 				9C5D5627272C660D0045CB8B /* ColorSliderView.swift */,
+				9C639EE82735A41400E94B65 /* TextFieldView.swift */,
+				9C639EE62735A2A600E94B65 /* TextView.swift */,
 				9C5D5629272C83CC0045CB8B /* ColorView.swift */,
 				9C5D561D272C65AD0045CB8B /* Assets.xcassets */,
 				9C5D561F272C65AD0045CB8B /* Preview Content */,
@@ -145,8 +151,10 @@
 			files = (
 				9C5D561C272C65AB0045CB8B /* ContentView.swift in Sources */,
 				9C5D562A272C83CC0045CB8B /* ColorView.swift in Sources */,
+				9C639EE92735A41400E94B65 /* TextFieldView.swift in Sources */,
 				9C5D561A272C65AB0045CB8B /* ColorChangerSwiftUIApp.swift in Sources */,
 				9C5D5628272C660D0045CB8B /* ColorSliderView.swift in Sources */,
+				9C639EE72735A2A600E94B65 /* TextView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,43 +10,37 @@ import SwiftUI
 struct ColorSliderView: View {
     
     @Binding var sliderValue: Double
-    @Binding var textFieldValue: String
-    let color: Color
+    @State private var textFieldValue = ""
     
-//    private func setFormatter() -> NumberFormatter {
-//        let formatter = NumberFormatter()
-//        formatter.numberStyle = NumberFormatter.Style.decimal
-//        formatter.roundingMode = NumberFormatter.RoundingMode.halfUp
-//        formatter.maximumFractionDigits = 0
-//        return formatter
-//    }
+    let color: Color
     
     var body: some View {
         HStack{
-            Text("\(lround(sliderValue))")
-                .foregroundColor(color)
-                .font(.system(size: 16, weight: .bold))
-                .lineLimit(1)
-                .frame(width: 35, alignment: .leading)
+            TextView(sliderValue: sliderValue, color: color)
                 .padding(.leading, 16)
             
             Slider(value: $sliderValue, in: 0...255, step: 1)
-                .foregroundColor(color)
                 .tint(color)
                 .padding(EdgeInsets(top: 0, leading: 2, bottom: 0, trailing: 10))
             
-//          TextField("", value: $sliderValue, formatter: setFormatter())
+                // if slider moves, TF value will be changed
+                .onChange(of: sliderValue) { isOnFocus in
+                    textFieldValue = "\(lround(isOnFocus))"
+                }
             
-            TextField("\(lround(sliderValue))", text: $textFieldValue)
-                .frame(width: 50, height: 40)
-                .foregroundColor(color)
-                .font(.system(size: 16, weight: .bold))
-                .textFieldStyle(.roundedBorder)
-                .textContentType(.oneTimeCode)
-                .keyboardType(.numberPad)
+            TextFieldView(textFieldValue: $textFieldValue, sliderValue: $sliderValue, color: color)
                 .padding(.trailing, 16)
         }
+        
+        // Start TF value
+        .onAppear {
+            textFieldValue = "\(lround(sliderValue))"
+        }
     }
-    
-    
+}
+
+struct ColorSliderView_Previews: PreviewProvider {
+    static var previews: some View {
+        ColorSliderView(sliderValue: .constant(150), color: .red)
+    }
 }
